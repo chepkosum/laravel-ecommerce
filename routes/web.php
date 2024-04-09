@@ -23,5 +23,11 @@ Route::controller(App\Http\Controllers\Admin\CategoryController::class)->group(f
     Route::put('/category/{category}', 'update');
 });
 
-//
+
+// Brands Routes
+// Route::controller(App\Http\Controllers\Admin\CategoryController::class)->group(function () {
+//     Route::get('/brands', 'index');
+// });
+
+Route::get('/brands', App\Livewire\Admin\Brand\Index::class);
 });
