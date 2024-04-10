@@ -23,11 +23,14 @@ Route::controller(App\Http\Controllers\Admin\CategoryController::class)->group(f
     Route::put('/category/{category}', 'update');
 });
 
+//Product Routes
+Route::controller(App\Http\Controllers\Admin\ProductController::class)->group(function () {
+
+    Route::get('/products', 'index');
+    Route::get('/products/create', 'create');
+    Route::post('/products', 'store');
+});
 
 // Brands Routes
-// Route::controller(App\Http\Controllers\Admin\CategoryController::class)->group(function () {
-//     Route::get('/brands', 'index');
-// });
-
 Route::get('/brands', App\Livewire\Admin\Brand\Index::class);
 });
