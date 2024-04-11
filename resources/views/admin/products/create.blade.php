@@ -14,8 +14,8 @@
 
                     @if ($errors->any())
                         <div class="alert alert-warning">
-                            @foreach ($errors ->all() as $error)
-                                <div>{{$error}}</div>
+                            @foreach ($errors->all() as $error)
+                                <div>{{ $error }}</div>
                             @endforeach
                         </div>
                     @endif
@@ -45,6 +45,11 @@
                                 <button class="nav-link" id="images-tab" data-bs-toggle="pill" data-bs-target="#images"
                                     type="button" role="tab" aria-controls="images" aria-selected="false">
                                     Product Images</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="color-tab" data-bs-toggle="pill" data-bs-target="#color"
+                                    type="button" role="tab" aria-controls="color" aria-selected="false">
+                                    Product Colors</button>
                             </li>
                         </ul>
                         <div class="tab-content" id="mytabContent">
@@ -86,8 +91,8 @@
 
                             </div>
                             {{-- SEO TAGS --}}
-                            <div class="tab-pane fade border p-3 " id="seotag" role="tabpanel" aria-labelledby="seotag-tab"
-                                tabindex="0">
+                            <div class="tab-pane fade border p-3 " id="seotag" role="tabpanel"
+                                aria-labelledby="seotag-tab" tabindex="0">
 
                                 <div class="mb-3">
                                     <label>Meta Title</label>
@@ -103,8 +108,8 @@
                                 </div>
                             </div>
                             {{-- DETAILS --}}
-                            <div class="tab-pane fade border p-3 " id="details" role="tabpanel" aria-labelledby="details-tab"
-                                tabindex="0">
+                            <div class="tab-pane fade border p-3 " id="details" role="tabpanel"
+                                aria-labelledby="details-tab" tabindex="0">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="mb-3">
@@ -127,7 +132,7 @@
                                     <div class="col-md-4">
                                         <div class="mb-3">
                                             <label>Trending</label>
-                                            <input type="checkbox" name="trending" style="width: 50px; height: 50px"/>
+                                            <input type="checkbox" name="trending" style="width: 50px; height: 50px" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -141,14 +146,38 @@
                             </div>
 
                             {{-- Product Image --}}
-                            <div class="tab-pane fade border p-3 " id="images" role="tabpanel" aria-labelledby="details-tab"tabindex="0">
-                                    <div class="mb-3">
-                                        <label>Upload Product Image</label>
-                                        <input type="file" multiple name="image[]" class="form-control" />
+                            <div class="tab-pane fade border p-3 " id="images" role="tabpanel"
+                                aria-labelledby="details-tab"tabindex="0">
+                                <div class="mb-3">
+                                    <label>Upload Product Image</label>
+                                    <input type="file" multiple name="image[]" class="form-control" />
+                                </div>
+                            </div>
+                            {{-- Product Color --}}
+                            <div class="tab-pane fade border p-3 " id="color" role="tabpanel"
+                                aria-labelledby="details-tab"tabindex="0">
+                                <div class="mb-3">
+                                    <label>Select Color</label>
+                                    <hr/>
+                                    <div class="row">
+                                        @forelse ($colors as $color)
+                                            <div class="col-md-3">
+                                                <div class="p-2 border mb-3 ">
+                                                Color: <input type="checkbox" value="{{$color->id}}" name="colors[{{$color->id}}]" />{{$color->code}}
+                                                <br/>
+                                                Quantity: <input type="number" name="colorquantity[{{$color->id}}]" style="width: 70px; border:1px solid;" />
+                                            </div>
+
+                                            </div>
+                                        @empty
+                                        <div class="col-md-12">
+                                            <h5>No Colors Available</h5>
+                                        </div>
+                                        @endforelse
                                     </div>
+                                </div>
                             </div>
                         </div>
-
                         <div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
