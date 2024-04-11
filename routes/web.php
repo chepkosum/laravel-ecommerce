@@ -37,4 +37,18 @@ Route::controller(App\Http\Controllers\Admin\ProductController::class)->group(fu
 
 // Brands Routes
 Route::get('/brands', App\Livewire\Admin\Brand\Index::class);
+
+
+//Color Routes
+Route::controller(App\Http\Controllers\Admin\ColorController::class)->group(function () {
+
+    Route::get('/colors', 'index');
+    Route::get('/colors/create', 'create');
+    Route::post('/colors/create', 'store');
+    Route::get('/colors/{color}/edit', 'edit');
+    Route::put('/colors/{color_id}', 'update');
+    Route::get('/colors/{color_id}/delete', 'destroy');
+});
+
+
 });
