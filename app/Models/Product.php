@@ -29,6 +29,13 @@ class Product extends Model
         'meta_description',
     ];
 
+    //function for fetching category name
+    public function category(){
+
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+
+    //function for adding images after product has been created
     public function productImages(){
         return $this->hasMany(ProductImage::class, 'product_id', 'id');
     }
