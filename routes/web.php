@@ -33,6 +33,10 @@ Route::controller(App\Http\Controllers\Admin\ProductController::class)->group(fu
     Route::put('/products/{product}', 'update');
     Route::get('/products/{product_id}/delete','destroy');
     Route::get('/product-image/{product_image_id}/delete','destroyImage');
+
+    Route::post('/product-color/{prod_color_id}', 'updateProductColorQty');
+    Route::get('/product-color/{prod_color_id}/delete', 'deleteProductColor');
+
 });
 
 // Brands Routes
