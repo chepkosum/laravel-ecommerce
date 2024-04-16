@@ -29,7 +29,7 @@ class CategoryController extends Controller
         $category->slug = Str::slug($validatedData['slug']);
         $category->description = $validatedData['description'];
 
-        $uploadPath='uploads/category';
+        $uploadPath='uploads/category/';
         if($request->hasFile('image')){
 
             $file = $request->file('image');
@@ -69,7 +69,7 @@ class CategoryController extends Controller
         $category->slug = Str::slug($validatedData['slug']);
         $category->description = $validatedData['description'];
 
-        $uploadPath='uploads/category';
+        $uploadPath='uploads/category/';
         if($request->hasFile('image')){
 
             $path = 'uploads/category/'.$category->image;
