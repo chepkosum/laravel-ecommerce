@@ -8,13 +8,13 @@
 <div id="carouselExampleDark" class="carousel carousel-dark slide">
 
 
-    <div class="carousel-inner h-25 ">
+    <div class="carousel-inner ">
 
         @foreach ($sliders as $key=>$sliderItem)
 
-      <div class="carousel-item {{$key =='0' ? 'active':''}}" data-bs-interval="10000">
+      <div class="carousel-item  {{$key =='0' ? 'active':''}}" data-bs-interval="10000">
         @if ($sliderItem->image)
-        <img src="{{asset("$sliderItem->image")}}" class="d-block  w-100" alt="Slider">
+        <img src="{{asset("$sliderItem->image")}}" class="d-block  w-100" style="height: auto; max-height: 50vh;" alt="Slider">
        @endif
         {{-- <div class="carousel-caption d-none d-md-block">
           <h5>{{$sliderItem->title}}</h5>
