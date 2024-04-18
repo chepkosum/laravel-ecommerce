@@ -48,7 +48,7 @@
 
                                 @if ($productItem->productImages->count() > 0)
                                     <a
-                                        href="{{ url('/collection/' . $productItem->category->slug . '/' . $productItem->slug) }}">
+                                        href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
                                         <img src="{{ asset($productItem->productImages[0]->image) }}"
                                             alt="{{ $productItem->name }}">
                                     </a>
@@ -58,7 +58,7 @@
                                 <p class="product-brand">{{ $productItem->brand }}</p>
                                 <h5 class="product-name">
                                     <a
-                                        href="{{ url('/collection/' . $productItem->category->slug . '/' . $productItem->slug) }}">
+                                        href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
                                         {{ $productItem->name }}
                                     </a>
                                 </h5>
