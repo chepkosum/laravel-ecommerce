@@ -6,6 +6,8 @@ use App\Models\Wishlist;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
+use function PHPSTORM_META\type;
+
 class View extends Component
 {
     public $category, $product,$prodColorSelectedQuantity;
@@ -17,6 +19,11 @@ class View extends Component
             if(Wishlist::where('user_id',auth()->user()->id)->where('product_id',$productId)->exists()){
 
                 session()->flash('message', 'Already Added to Wishlist');
+                $this->dispatch('message',
+                text: 'Already Added to Wishlist',
+                type:'warning',
+                status:409);
+                return false;
             }
             else{
 
@@ -25,11 +32,20 @@ class View extends Component
             'product_id' => $productId
            ]);
            session()->flash('message', 'Wishlist Added successfully');
+           $this->dispatch('message',
+           text: 'Wishlist Added successfully',
+            type:'success',
+            status:200);
+           return false;
         }
 
         }
         else{
             session()->flash('message', 'Please Login to Continue');
+            $this->dispatch('message',
+            text: 'Please Login to Continue',
+            type:'info',
+             status:401);
             return false;
         }
     }

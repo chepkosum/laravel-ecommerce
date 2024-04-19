@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,14 +21,19 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     {{-- Styles --}}
-    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
 
+    <!-- CSS alertify-->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <!-- Default theme alertify -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     @livewireStyles
 </head>
+
 <body>
     <div id="app">
 
@@ -91,9 +97,24 @@
             @yield('content')
         </main>
     </div>
-    <script src="{{asset('assets/Js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('assets/Js/jquery-3.7.1.min.js')}}"></script>
+    <script src="{{ asset('assets/Js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/Js/jquery-3.7.1.min.js') }}"></script>
 
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+    <script>
+        window.addEventListener('message', event => {
+            alertify.set('notifier', 'position', 'top-right');
+            alertify.notify(event.detail.text, event.detail.type);
+        });
+        // document.addEventListener('livewire:load', () => {
+        //     Livewire.on('message', (data) => {
+        //         alertify.set('notifier', 'position', 'top-right');
+        //         alertify.success(data.text);
+        //     });
+        // });
+    </script>
     @livewireScripts
 </body>
+
 </html>
