@@ -115,6 +115,7 @@ class View extends Component
                                     'product_color_id'=> $this->productColorId,
                                     'quantity'=> $this->quantityCount
                                 ]);
+                                $this->dispatch('CartAddedUpdated');
                                 $this->dispatch('message',
                                 text: 'Product Added to Cart',
                                 type: 'success',
@@ -166,6 +167,7 @@ class View extends Component
                             'product_id'=>$productId,
                             'quantity'=> $this->quantityCount
                         ]);
+                        $this->dispatch('CartAddedUpdated');
                         $this->dispatch('message',
                         text: 'Product Added to Cart',
                         type: 'success',
