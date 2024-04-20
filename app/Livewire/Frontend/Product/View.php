@@ -31,6 +31,7 @@ class View extends Component
             'user_id'=> auth()->user()->id,
             'product_id' => $productId
            ]);
+           $this->dispatch('wishlistAddedUpdated');
            session()->flash('message', 'Wishlist Added successfully');
            $this->dispatch('message',
            text: 'Wishlist Added successfully',
