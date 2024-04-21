@@ -57,6 +57,7 @@
                                 </div>
                                 <div class="col-md-1 my-auto">
                                     <label class="price">Ksh {{$cartItem->product->selling_price}} </label>
+
                                 </div>
                                 <div class="col-md-2 col-7 my-auto">
                                     <div class="quantity">
@@ -69,6 +70,9 @@
                                 </div>
                                 <div class="col-md-1 my-auto">
                                     <label class="price">Ksh {{$cartItem->product->selling_price * $cartItem->quantity}} </label>
+                                    @php
+                                        $totalPrice += $cartItem->product->selling_price * $cartItem->quantity
+                                    @endphp
                                 </div>
                                 <div class="col-md-2 col-5 my-auto">
                                     <div class="remove">
@@ -95,6 +99,22 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-md-8 my-md-auto mt-3">
+                    <h5>
+                        Get the best deals & offers <a href="{{url('/collections')}}">Shop Now</a>
+                    </h5>
+                </div>
+                <div class="col-md-4 mt-3 ">
+                    <div class="shadow-sm bg-white p-3">
+                        <h4>Total:
+                            <span class="float-end">Ksh {{$totalPrice}}</span>
+                        </h4>
+                        <hr>
+                        <a href="{{url('/checkout')}}" class="btn btn-warning w-100">Checkout</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
