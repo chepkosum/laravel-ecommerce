@@ -52,6 +52,13 @@ public function placeOrder(){
             'quantity' =>$cartItem->quantity,
             'price' =>$cartItem->product->selling_price
         ]);
+        if($cartItem->product_color_id !=NULL){
+
+            $cartItem->productColor()->where('id', $cartItem->product_color_id)->decrement('quantity', $cartItem->quantity);
+        }else{
+
+            $cartItem->product()->where('id', $cartItem->product_id)->decrement('quantity', $cartItem->quantity);
+        }
     }
 
     return $order;
@@ -65,6 +72,7 @@ public function placeOrder(){
 
             Cart::where('user_id', auth()->user()->id)->delete();
 
+            session()->flash('message', 'Order Placed Successfully');
             $this->dispatch('message',
             text: 'Order Placed Successfully',
             type: 'success',
@@ -86,6 +94,7 @@ public function placeOrder(){
 
     public function totalProductAmount()
     {
+        $this->totalProductAmount = 0;
         $this->carts = Cart::where('user_id', auth()->user()->id)->get();
         foreach ($this->carts as $cartItem){
             $this->totalProductAmount += $cartItem->product->selling_price * $cartItem->quantity;
@@ -93,6 +102,7 @@ public function placeOrder(){
 
         return $this->totalProductAmount;
     }
+
     public function render()
     {
         $this->fullname = auth()->user()->name;
