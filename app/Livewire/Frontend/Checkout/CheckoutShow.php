@@ -14,6 +14,42 @@ class CheckoutShow extends Component
 
     public $fullname, $email, $phone, $pincode, $address, $payment_mode = NUll, $payment_id = NULL;
 
+    protected $listeners = [
+        'validationForAll',
+        'transactionEmit' =>'paidOnlineOrder'
+    ];
+
+    public function paidOnlineOrder($value){
+        $this->payment_id = $value;
+        $this->payment_mode = 'Paid by Paypal';
+
+        $codOrder = $this->placeOrder();
+        if($codOrder){
+
+            Cart::where('user_id', auth()->user()->id)->delete();
+
+            session()->flash('message', 'Order Placed Successfully');
+            $this->dispatch('message',
+            text: 'Order Placed Successfully',
+            type: 'success',
+            status: 200
+        );
+        return redirect()->to('thank-you');
+        }else{
+
+            $this->dispatch('message',
+            text: 'Something Went Wrong',
+            type: 'error',
+            status: 500
+        );
+        }
+
+    }
+
+    public function validationForAll(){
+        $this->validate();
+    }
+
     public function rules(){
         return[
             'fullname' => 'required|string|max:121',

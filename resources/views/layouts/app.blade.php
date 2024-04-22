@@ -104,8 +104,10 @@
 
     <script>
         window.addEventListener('message', event => {
+            if(event.detail){
             alertify.set('notifier', 'position', 'top-right');
             alertify.notify(event.detail.text, event.detail.type);
+            }
         });
         // document.addEventListener('livewire:load', () => {
         //     Livewire.on('message', (data) => {
@@ -114,7 +116,9 @@
         //     });
         // });
     </script>
+
     @livewireScripts
+    @stack('scripts')
 </body>
 
 </html>
