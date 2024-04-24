@@ -8,9 +8,9 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="pages/icons/mdi.html">
+        <a class="nav-link" href="{{url('admin/orders')}}">
           <i class="mdi mdi-poll-box menu-icon"></i>
-          <span class="menu-title">Sales</span>
+          <span class="menu-title">Orders</span>
         </a>
       </li>
 

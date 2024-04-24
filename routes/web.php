@@ -88,5 +88,10 @@ Route::controller(App\Http\Controllers\Admin\ColorController::class)->group(func
     Route::get('/colors/{color_id}/delete', 'destroy');
 });
 
+//admin/orders
+Route::controller(App\Http\Controllers\Admin\OrderController::class)->group(function () {
+
+    Route::get('/orders', 'index');
+});
 
 });
