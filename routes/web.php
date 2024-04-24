@@ -92,6 +92,7 @@ Route::controller(App\Http\Controllers\Admin\ColorController::class)->group(func
 Route::controller(App\Http\Controllers\Admin\OrderController::class)->group(function () {
 
     Route::get('/orders', 'index');
+    Route::get('/orders/{orderId}', 'show');
 });
 
 });
