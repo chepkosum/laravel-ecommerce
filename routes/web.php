@@ -93,6 +93,7 @@ Route::controller(App\Http\Controllers\Admin\OrderController::class)->group(func
 
     Route::get('/orders', 'index');
     Route::get('/orders/{orderId}', 'show');
+    Route::put('/orders/{orderId}', 'updateOrderStatus');
 });
 
 });
