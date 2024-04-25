@@ -12,15 +12,16 @@
             @endif
             <div class="card">
                 <div class="card-header">
-                    <h3>My Order Details</h3>
+                    <h3>My Order Details
+                        <a href="{{ url('admin/orders') }}" class="btn btn-danger  btn-sm float-end mx-1  ">Back</a>
+                        <a href="{{ url('admin/invoice/'. $order->id .'/generate') }}" class="btn btn-primary  btn-sm float-end mx-1  ">Download
+                            Invoice</a>
+                        <a href="{{ url('admin/invoice/'. $order->id) }}" target="_blank"
+                            class="btn btn-warning  btn-sm float-end ">View Invoice</a>
+                    </h3>
                 </div>
                 <div class="card-body">
-
-                    <h4 class="text-primary">
-                        <i class="fa fa-shopping-order text-dark"></i> My Order Details
-                        <a href="{{ url('admin/orders') }}" class="btn btn-danger  btn-sm float-end ">Back</a>
-                    </h4>
-                    <hr>
+                    <hr/>
 
                     <div class="row">
                         <div class="col-md-6">
@@ -45,7 +46,7 @@
                         </div>
                     </div>
 
-                    <br>
+                    <br/>
                     <h5>Order Items</h5>
                     <hr>
 
@@ -113,7 +114,7 @@
             <div class="card border mb-3 ">
                 <div class="card-body">
                     <h4>Order Process (Order Status Updates)</h4>
-                    <hr>
+                    <hr/>
                     <div class="row">
                         <div class="col-md-5">
                             <form action="{{ url('admin/orders/' . $order->id) }}" method="POST">
@@ -128,11 +129,14 @@
                                             {{ Request::get('status') == 'in progress' ? 'selected' : '' }}>In Progress
                                         </option>
                                         <option value="completed"
-                                            {{ Request::get('status') == 'completed' ? 'selected' : '' }}>Completed</option>
-                                        <option value="pending" {{ Request::get('status') == 'pending' ? 'selected' : '' }}>
+                                            {{ Request::get('status') == 'completed' ? 'selected' : '' }}>Completed
+                                        </option>
+                                        <option value="pending"
+                                            {{ Request::get('status') == 'pending' ? 'selected' : '' }}>
                                             Pending</option>
                                         <option value="cancelled"
-                                            {{ Request::get('status') == 'cancelled' ? 'selected' : '' }}>Cancelled</option>
+                                            {{ Request::get('status') == 'cancelled' ? 'selected' : '' }}>Cancelled
+                                        </option>
                                         <option value="out-for-delivery"
                                             {{ Request::get('status') == 'out-for-delivery' ? 'selected' : '' }}>Out for
                                             delivery</option>
