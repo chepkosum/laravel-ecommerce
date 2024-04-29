@@ -94,22 +94,22 @@
                         <a class="nav-link" href="{{url('/new-arrivals')}}">New Arrivals</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Featured Products</a>
+                        <a class="nav-link" href="{{url('/featured-products')}}">Featured Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Electronics</a>
+                        <a class="nav-link" href="{{url('/new-arrivals')}}">Electronics</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Fashions</a>
+                        <a class="nav-link" href="{{url('/new-arrivals')}}">Fashions</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Accessories</a>
+                        <a class="nav-link" href="{{url('/new-arrivals')}}">Accessories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="{{url('/new-arrivals')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Appliances</a>
+                        <a class="nav-link" href="{{url('/new-arrivals')}}">Appliances</a>
                     </li>
                 </ul>
             </div>
