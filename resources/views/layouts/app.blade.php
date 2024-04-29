@@ -105,6 +105,8 @@
         <main>
             @yield('content')
         </main>
+
+        @include('layouts.include.admin.frontend.footer')
     </div>
     <script src="{{ asset('assets/Js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/Js/jquery-3.7.1.min.js') }}"></script>
