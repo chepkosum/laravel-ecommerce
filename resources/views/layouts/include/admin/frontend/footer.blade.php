@@ -74,7 +74,10 @@
                         <a href="{{$appSetting->instagram}}" target="_blank"><i class="fa fa-instagram"></i></a>
                         @endif
                         @if ($appSetting->youtube)
-                        <a href="{{$appSetting->youtube}}" target="_blank"><i class="fa fa-youtube"></i></a>
+                        <a href="{{ (str_starts_with($appSetting->youtube, 'http://') || str_starts_with($appSetting->youtube, 'https://')) ? $appSetting->youtube : 'http://' . $appSetting->youtube }}" target="_blank">
+                            <i class="fa fa-youtube"></i>
+                        </a>
+
                         @endif
 
                     </div>
