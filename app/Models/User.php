@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\UserDetail;
 
 class User extends Authenticatable
 {
@@ -22,6 +23,10 @@ class User extends Authenticatable
         'password',
         'role_as',
     ];
+
+    public function userDetail(){
+        return $this->hasOne(UserDetail::class, 'user_id', 'id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.
@@ -45,4 +50,5 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
 }
