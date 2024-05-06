@@ -116,6 +116,8 @@ Route::controller(App\Http\Controllers\Admin\OrderController::class)->group(func
 
     Route::get('/invoice/{orderId}', 'viewInvoice');
     Route::get('/invoice/{orderId}/generate', 'generateInvoice');
+
+    Route::get('/invoice/{orderId}/mail', 'mailInvoice');
 });
 
 
