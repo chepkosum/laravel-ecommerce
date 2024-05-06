@@ -13,7 +13,7 @@
                     <h4>New Arrivals</h4>
                     <div class="underline mb-4"></div>
                 </div>
-                    @forelse ($newArrivalProducts as $productItem)
+                @forelse ($newArrivalProducts as $productItem)
                 <div class="col-md-3">
                         <div class="product-card">
                             <div class="product-card-img">
@@ -43,11 +43,11 @@
                             </div>
                         </div>
                  </div>
-                    @empty
+                @empty
                         <div class="col-md-12 p-2">
                             <h5>No Products Available</h5>
                         </div>
-                    @endforelse
+                @endforelse
 
                     <div class="text-center">
                         <a href="{{url('collections')}}" class="btn btn-warning px-3">View More</a>
