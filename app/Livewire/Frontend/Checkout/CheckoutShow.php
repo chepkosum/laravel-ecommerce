@@ -2,9 +2,11 @@
 
 namespace App\Livewire\Frontend\Checkout;
 
+use App\Mail\PlaceOrderMailable;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Orderitem;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
@@ -27,6 +29,15 @@ class CheckoutShow extends Component
         if($codOrder){
 
             Cart::where('user_id', auth()->user()->id)->delete();
+
+            try{
+              $order = Order::findOrFail($codOrder->id);
+              Mail::to("$order->email")->send(new PlaceOrderMailable($order));
+              //Mail send Successfully
+            } catch(\Exception $e){
+
+                //Something Went Wrong
+            }
 
             session()->flash('message', 'Order Placed Successfully');
             $this->dispatch('message',
@@ -108,11 +119,21 @@ public function placeOrder(){
 
             Cart::where('user_id', auth()->user()->id)->delete();
 
+            try{
+                //Mail send Successfully
+              $order = Order::findOrFail($codOrder->id);
+              Mail::to("$order->email")->send(new PlaceOrderMailable($order));
+
+            } catch(\Exception $e){
+
+                //Something Went Wrong
+            }
+
             session()->flash('message', 'Order Placed Successfully');
             $this->dispatch('message',
-            text: 'Order Placed Successfully',
-            type: 'success',
-            status: 200
+                  text: 'Order Placed Successfully',
+                  type: 'success',
+                  status: 200
         );
 
         return redirect()->to('thank-you');
@@ -143,6 +164,11 @@ public function placeOrder(){
     {
         $this->fullname = auth()->user()->name;
         $this->email = auth()->user()->email;
+
+        $this->phone = auth()->user()->userDetail->phone;
+        $this->pincode = auth()->user()->userDetail->pin_code;
+        $this->address = auth()->user()->userDetail->address;
+
 
         $this->totalProductAmount = $this->totalProductAmount();
         return view('livewire.frontend.checkout.checkout-show',[

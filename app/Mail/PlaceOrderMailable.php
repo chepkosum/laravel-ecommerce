@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class InvoiceOrderMailable extends Mailable
+class PlaceOrderMailable extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -20,7 +20,7 @@ class InvoiceOrderMailable extends Mailable
      */
     public function __construct($order)
     {
-        $this->order = $order;
+       $this->order = $order;
     }
 
     /**
@@ -29,7 +29,7 @@ class InvoiceOrderMailable extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Your Order Invoice',
+            subject: 'Order Placed Successfully, Thank you',
         );
     }
 
@@ -39,7 +39,7 @@ class InvoiceOrderMailable extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'admin.invoice.generate-invoice',
+            view: 'frontend.users.invoice.mail-invoice',
         );
     }
 
