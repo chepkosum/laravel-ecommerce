@@ -10,10 +10,12 @@ class Index extends Component
 
     public $products, $category, $brandInputs=[], $priceInput;
 
-    protected $queryString = [
+    protected function queryString () {
+        return [
         'brandInputs' => ['except' => '', 'as' => 'brand'],
         'priceInput' => ['except' => '', 'as' => 'price'],
     ];
+}
 
     public function mount($category){
 

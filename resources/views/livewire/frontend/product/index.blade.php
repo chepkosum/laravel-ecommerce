@@ -10,7 +10,7 @@
                 <div class="card-body">
                     @foreach ($category->brands as $brandItem)
                         <label class="d-block">
-                            <input type="checkbox" wire:model="brandInputs" value="{{$brandItem->name}}" />{{$brandItem->name}}
+                            <input type="checkbox" wire:model.live="brandInputs" value="{{$brandItem->name}}" />{{$brandItem->name}}
                         </label>
                     @endforeach
                 </div>
@@ -23,10 +23,10 @@
                 </div>
                 <div class="card-body">
                     <label class="d-block">
-                        <input type="radio" name="priceSort" wire:model="priceInput" value="high-to-low" />High to Low
+                        <input type="radio" name="priceSort" wire:model.live="priceInput" value="high-to-low" />High to Low
                     </label>
                     <label class="d-block">
-                        <input type="radio" name="priceSort" wire:model="priceInput" value="low-to-high" />Low to High
+                        <input type="radio" name="priceSort" wire:model.live="priceInput" value="low-to-high" />Low to High
                     </label>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                 @empty
                     <div class="col-md-12">
                         <div class="p-2">
-                            <h5>No Items Found For {{ $category->name }} Category</h5>
+                            <h5>No Items Found For {{ $category->name }}</h5>
                         </div>
                     </div>
                 @endforelse
