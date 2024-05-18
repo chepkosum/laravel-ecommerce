@@ -6,8 +6,10 @@
                     <h4 class="footer-heading">{{ $appSetting->website_name ?? 'Biwott WEB' }}</h4>
                     <div class="footer-underline"></div>
                     <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                        Welcome to Biwott Ecom  your
+                        ultimate destination for trendy Products. Our online store
+                         is designed to provide a seamless shopping experience, offering
+                          a vast selection of high-quality products from trusted brands.
                     </p>
                 </div>
                 <div class="col-md-3">
