@@ -106,7 +106,7 @@ class View extends Component
                         $productColor = $this->product->productColors()->where('id',$this->productColorId)->first();
                         if($productColor->quantity >0){
 
-                            if($productColor->quantity > $this->quantityCount){
+                            if($productColor->quantity >= $this->quantityCount){
 
                                 //Insert product to cart
                                 Cart::create([
