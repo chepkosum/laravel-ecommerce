@@ -56,13 +56,8 @@
                     <h4>Welcome to Biwott E-commerce</h4>
                     <div class="underline mx-auto "></div>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem error harum sed,
-                        mollitia fugiat asperiores quidem earum necessitatibus accusamus laudantium,
-                        placeat nesciunt eius repudiandae at animi laboriosam tempora dignissimos
-                        iure cumque vel dolore? Suscipit quae dolore dolor,
-                        impedit nesciunt doloribus quidem delectus incidunt repellendus officia
-                        unde quod excepturi perspiciatis doloremque sit et mollitia aut quia
-                        laboriosam! Vel voluptatibus rerum, labore aliquid atque, repellat
+                        Welcome to Biwott E-commerce, your ultimate destination for premium products at unbeatable prices. We specialize in offering a wide range of high-quality items, from the latest electronics and fashion trends to home essentials and unique gifts. Our user-friendly platform ensures a seamless shopping experience with secure transactions and fast shipping. Discover exceptional deals and enjoy top-notch customer service, tailored to make your online shopping experience delightful and hassle-free.
+                        Shop with us today and elevate your lifestyle with products you'll love!
                     </p>
                 </div>
             </div>
